@@ -1,6 +1,6 @@
 <template>
   <div>
-    <router-view></router-view>git 
+    <router-view></router-view>
   </div>
 </template>
 

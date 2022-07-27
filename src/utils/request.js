@@ -1,3 +1,3 @@
 import axios from 'axios'
-axios.defaults.baseURL = "http://ttapi.research.itcast.cn/"
+axios.defaults.baseURL = "http://toutiao.itheima.net"
 export default axios
