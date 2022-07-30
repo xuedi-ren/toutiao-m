@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <router-view></router-view>
-  </div>
+  <div>俺是资讯</div>
 </template>
 
 <script>
