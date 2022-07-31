@@ -1,6 +1,6 @@
 <template>
   <div>
-    <van-nav-bar class="page-nav-bar" title="账号登录" left-arrow />
+    <van-nav-bar class="page-nav-bar" title="账号登录" left-arrow @click-left="onClickLeft"/>
     <van-form @submit="onSubmit" class="login">
       <van-field
         v-model="username"
@@ -59,6 +59,9 @@ export default {
         console.log(err)
       }
     },
+    onClickLeft() {
+      this.$router.back()
+    }
   },
 }
 </script>
