@@ -30,8 +30,8 @@ export default {
     return {
       username: '',
       password: '',
-      reg1: /^[A-Za-z0-9]{5,12$/,
-      reg2: /^[A-Za-z0-9]{5,12$/,
+      reg1: /^[A-Za-z0-9]{5,12}$/,
+      reg2: /^[A-Za-z0-9]{5,12}$/,
     }
   },
   methods: {
@@ -46,11 +46,14 @@ export default {
         if (!this.reg2.test(this.password)) {
           return this.$toast('密码格式为5到12位的字母和数字')
         }
+        const { data: { body } } = await login(this.username, this.password)
         const res = await login(this.username, this.password)
-        console.log(res)
+        console.log(body)
         if (res.data.status === 400) {
           return this.$toast.fail('登录失败， 账号或密码错误')
         }
+        this.$store.commit('HAOKE_TOKEN', body)
+        this.$router.push('/layout/my')
         this.$toast('登录成功')
       } catch (err) {
         console.log(err)
