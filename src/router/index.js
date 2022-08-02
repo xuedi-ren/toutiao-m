@@ -28,12 +28,20 @@ const routes = [
       {
         path: 'my',
         component: () => import('@/views/my')
-      }
+      },
     ]
   },
   {
     path: '/login',
-    component: () => import('@/views/login'),
+    component: () => import('@/views/login')
+  },
+  {
+    path: '/favorate',
+    component: () => import('@/views/favorate')
+  },
+  {
+    path: '/detail',
+    component: () => import('@/views/favorate/detail')
   }
 ]
 

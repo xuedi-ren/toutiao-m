@@ -1,5 +1,28 @@
 <template>
-  <div>俺是找房</div>
+  <div>
+    <van-nav-bar
+  left-arrow
+  @click-left="onClickLeft"
+  class="nav-house"
+>
+<template #title>
+      <van-search
+      placeholder="请输入小区或地址"
+      class="inp"
+      label="深圳"
+    > 
+    <template #label>
+      深圳 <i class="iconfont icon-arrow"></i>
+    </template>
+    </van-search>
+    <i class="iconfont icon-map"></i>
+</template>
+</van-nav-bar>
+<van-dropdown-menu active-color="#1989fa">
+  <van-dropdown-item v-model="value1" :options="option1" />
+  <van-dropdown-item v-model="value2" :options="option2" />
+</van-dropdown-menu>
+  </div>
 </template>
 
 <script>
@@ -8,6 +31,40 @@ export default {
 }
 </script>
 
-<style>
+<style scoped lang="less">
+.nav-house {
+  background-color: #00b97c;
+}
+:deep(.van-nav-bar__title) {
+  font-size: 18px;
+  color: #fff;
+}
+:deep(.van-nav-bar__arrow) {
+  font-size: 16px;
+  color: #fff;
+}
+.icon-map {
+  font-size: 25px;
+  color: #fff;
+  position: fixed;
+  bottom: 633px;
+  left: 340px;
+}
+.van-search {
+  width: 305px;
+  position: fixed;
+  bottom: 617px;
+  left: 35px;
+  background-color: transparent;
+  :deep(.van-icon) {
+  color: #9c9fa1;
+}
+}
+.icon-arrow {
+  font-size: 12px;
+}
+:deep(.van-search__label) {
+  margin-right: 15px;
+}
 
 </style>

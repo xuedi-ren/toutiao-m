@@ -49,32 +49,32 @@
       </div>
       <!-- !我的资料 -->
       <van-grid :column-num="3" class="gride">
-        <van-grid-item text="我的收藏">
+        <van-grid-item text="我的收藏" @click="myCollect">
           <template #icon>
             <span class="iconfont icon-coll"></span>
           </template>
         </van-grid-item>
-        <van-grid-item text="我的收藏">
+        <van-grid-item text="我的出租">
           <template #icon>
             <span class="iconfont icon-ind"></span>
           </template>
         </van-grid-item>
-        <van-grid-item text="我的收藏">
+        <van-grid-item text="看房记录">
           <template #icon>
             <span class="iconfont icon-record"></span>
           </template>
         </van-grid-item>
-        <van-grid-item text="我的收藏">
+        <van-grid-item text="成为房主">
           <template #icon>
             <span class="iconfont icon-identity"></span>
           </template>
         </van-grid-item>
-        <van-grid-item text="我的收藏">
+        <van-grid-item text="个人资料">
           <template #icon>
             <span class="iconfont icon-myinfo"></span>
           </template>
         </van-grid-item>
-        <van-grid-item text="我的收藏">
+        <van-grid-item text="联系我们">
           <template #icon>
             <span class="iconfont icon-cust"></span>
           </template>
@@ -106,6 +106,13 @@ export default {
         .catch(() => {
           // on cancel
         })
+    },
+    myCollect() {
+      if (this.isShow) {
+        this.$router.push('/favorate')
+      } else {
+        this.$router.push('/login')
+      }
     }
   },
   computed: {

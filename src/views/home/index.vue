@@ -60,11 +60,15 @@
     </div>
     <!-- 搜素框 -->
     <van-search
-      placeholder="请输入搜索关键词"
+      placeholder="请输入小区或地址"
       class="inp"
       label="深圳"
-    /> 
-    <i class="toutiao toutiao-shouji"></i>
+    > 
+    <template #label>
+      深圳 <i class="iconfont icon-arrow"></i>
+    </template>
+    </van-search>
+    <i class="iconfont icon-map"></i>
   </div>
 </template>
 
@@ -96,7 +100,7 @@ export default {
 </script>
 
 <style scoped lang="less">
-.toutiao-shouji {
+.icon-map {
   font-size: 25px;
   color: #fff;
   position: fixed;
@@ -185,5 +189,11 @@ export default {
       color: #333;
     }
   }
+}
+.icon-arrow {
+  font-size: 12px;
+}
+:deep(.van-search__label) {
+  margin-right: 15px;
 }
 </style>
