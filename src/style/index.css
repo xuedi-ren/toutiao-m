@@ -75,6 +75,12 @@
 .toutiao-fenxiang:before {
   content: "\e607";
 }
+#root,
+.App,
+body,
+html {
+  background-color: #f6f6f6 !important;
+}
 .page-nav-bar {
   background-color: #00b97c !important;
 }

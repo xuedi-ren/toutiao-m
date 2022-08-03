@@ -39,11 +39,15 @@ export default {
     async collectList() {
       const { data } = await getcollectList()
       this.collectLists = data.body
-      console.log(data.body)
     },
-    detailFn() {
-      
-    }
+    detailFn(id) {
+      this.$router.push({
+        path: '/detail',
+        query: {
+          id: id
+        }
+      })
+    },
   }
 }
 </script>

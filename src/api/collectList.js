@@ -8,3 +8,8 @@ export const getcollectList = () => {
     }
   })
 }
+export const getdetailList = (id) => {
+  return request({
+    url: `/houses/${id}`
+  })
+}
