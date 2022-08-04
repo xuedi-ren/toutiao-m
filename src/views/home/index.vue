@@ -27,7 +27,7 @@
         地图找房
       </van-col>
       <van-col span="3.5">
-        <div class="pic">
+        <div class="pic" @click="gorent">
           <img src="@/assets/下载.png" alt="" />
         </div>
         去出租
@@ -95,7 +95,21 @@ export default {
     } catch (err) {
       console.log(err)
     }
-  }
+  },
+  computed: {
+    isShow() {
+      return !!this.$store.state.TOKEN.token
+    }
+  },
+  methods: {
+    gorent() {
+      if (this.isShow) {
+        this.$router.push('/rent/add')
+      } else {
+        this.$router.push('/login')
+      }
+    }
+  },
 }
 </script>
 

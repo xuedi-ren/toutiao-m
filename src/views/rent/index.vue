@@ -1,13 +1,16 @@
 <template>
   <div>
     <van-nav-bar
-      title="收藏列表"
+      title="房屋管理"
       left-arrow
       @click-left="onClickLeft"
       class="collectList"
     />
+    <div class="text" v-if="rentLists.length > 0 ? true : false">
+      <span>您还没有房源， <i @click="addFn">去发布房源</i> 吧~</span>
+    </div>
     <div
-      v-for="(obj, index) in collectLists"
+      v-for="(obj, index) in rentLists"
       :key="index"
       class="collLis"
       @click="detailFn(obj.houseCode)"
@@ -27,46 +30,51 @@
 </template>
 
 <script>
-import { getcollectList } from '@/api/collectList'
+import { myRentList as myRentListAPI } from '@/api/rent'
 export default {
   data() {
     return {
-      collectLists: []
+      rentLists: []
+    }
+  },
+  computed: {
+    isShow() {
+      return !!this.$store.state.TOKEN.token
     }
   },
   created() {
-    this.collectList()
+    this.myRentList()
   },
   methods: {
     onClickLeft() {
       this.$router.back()
     },
-    async collectList() {
+    addFn() {
+      if (this.isShow) {
+        this.$router.push('/rent/add')
+      } else {
+        this.$router.push('/login')
+      }
+    },
+    async myRentList() {
       this.$toast.loading({
         message: '加载中...',
         forbidClick: true
       })
       try {
-        const { data } = await getcollectList()
-        this.collectLists = data.body
+        const { data } = await myRentListAPI()
+        console.log(data)
+        this.rentLists = data.body
       } catch (error) {
-        this.$toast.fail('加载失败， 请刷新后重试')
+        console.log(error) 
       }
-    },
-    detailFn(id) {
-      this.$router.push({
-        path: '/detail',
-        query: {
-          id: id
-        }
-      })
     }
   }
 }
 </script>
 
 <style scoped lang="less">
-.collectList {
+body .collectList {
   background-color: #00b97c;
 }
 :deep(.van-nav-bar__title) {
@@ -76,6 +84,17 @@ export default {
 :deep(.van-nav-bar__arrow) {
   font-size: 16px;
   color: #fff;
+}
+.text {
+  height: 120px;
+  text-align: center;
+  line-height: 120px;
+  span {
+    font-size: 14px;
+    i {
+      color: #00b97c;
+    }
+  }
 }
 .collLis {
   display: flex;

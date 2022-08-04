@@ -13,3 +13,34 @@ export const getdetailList = (id) => {
     url: `/houses/${id}`
   })
 }
+
+export const getIsCollect = (id) => {
+  return request({
+    url: `/user/favorites/${id}`,
+    headers: {
+      authorization: store.state.TOKEN.token
+    }
+    
+  })
+}
+
+export const delCollect = (id) => {
+  return request({
+    url: `/user/favorites/${id}`,
+    method: 'DELETE',
+    headers: {
+      authorization: store.state.TOKEN.token
+    }
+    
+  })
+}
+export const addCollect = (id) => {
+  return request({
+    url: `/user/favorites/${id}`,
+    method: 'POST',
+    headers: {
+      authorization: store.state.TOKEN.token
+    }
+    
+  })
+}

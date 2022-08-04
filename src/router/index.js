@@ -42,6 +42,14 @@ const routes = [
   {
     path: '/detail',
     component: () => import('@/views/favorate/detail')
+  },
+  {
+    path: '/rent',
+    component: () => import('@/views/rent'),
+  },
+  {
+    path: '/rent/add',
+    component: () => import('@/views/rent/add.vue')  
   }
 ]
 

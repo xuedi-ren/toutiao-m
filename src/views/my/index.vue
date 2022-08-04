@@ -54,7 +54,7 @@
             <span class="iconfont icon-coll"></span>
           </template>
         </van-grid-item>
-        <van-grid-item text="我的出租">
+        <van-grid-item text="我的出租" @click="myrent">
           <template #icon>
             <span class="iconfont icon-ind"></span>
           </template>
@@ -110,6 +110,13 @@ export default {
     myCollect() {
       if (this.isShow) {
         this.$router.push('/favorate')
+      } else {
+        this.$router.push('/login')
+      }
+    },
+    myrent() {
+      if (this.isShow) {
+        this.$router.push('/rent')
       } else {
         this.$router.push('/login')
       }
