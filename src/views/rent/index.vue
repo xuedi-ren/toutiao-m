@@ -6,7 +6,7 @@
       @click-left="onClickLeft"
       class="collectList"
     />
-    <div class="text" v-if="rentLists.length > 0 ? true : false">
+    <div class="text" v-if="rentLists.length > 0 ? false : true">
       <span>您还没有房源， <i @click="addFn">去发布房源</i> 吧~</span>
     </div>
     <div
