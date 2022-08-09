@@ -7,9 +7,7 @@
       class="collectList"
     />
     <van-cell title="房源信息" class="cell-title" />
-    <van-cell title="小区名称" is-link @click="$router.push('/rent/search')">
-      {{ $store.state.COMMUNITY }}
-    </van-cell>
+    <van-cell title="小区名称" is-link @click="$router.push('/rent/search')"> 请输入小区名称 </van-cell>
     <van-cell-group>
       <van-field v-model="value1" label="租金" placeholder="请输入租金/月">
         <template #right-icon> ￥/月 </template>
@@ -18,7 +16,7 @@
         <template #right-icon> ㎡ </template>
       </van-field>
     </van-cell-group>
-    <van-cell title="户型" is-link @click="isShowHouse=true"> 请选择 </van-cell>
+    <van-cell title="户型" is-link> 请选择 </van-cell>
     <van-cell title="所在楼层" is-link> 请选择 </van-cell>
     <van-cell title="朝向" is-link label="房屋标题" class="cell-direction">
       请选择
@@ -46,34 +44,22 @@
     </van-grid>
     <van-cell title="房屋描述" />
     <van-field
-      v-model="value4"
-      rows="2"
-      autosize
-      type="textarea"
-      placeholder="请输入描述"
-      show-word-limit
-      class="textarea"
-    />
-    <div class="btn">
-      <button class="btn1">取消</button>
-      <button class="btn2">提交</button>
-    </div>
-
-    <!-- ! 户型 -->
-    <van-popup 
-    v-model="isShowHouse" 
-    position="bottom"
-    >
-    <hourse @close="isShowHouse=false" @updatehouse="updatehouse"></hourse>
-    </van-popup>
+  v-model="value4"
+  rows="2"
+  autosize
+  type="textarea"
+  placeholder="请输入描述"
+  show-word-limit
+  class="textarea"
+/>
+<div class="btn">
+  <button class="btn1">取消</button>
+  <button class="btn2">提交</button>
+</div>
   </div>
 </template>
 <script>
-import hourse from './components/hourse.vue'
 export default {
-  components: {
-    hourse,
-  },
   data() {
     return {
       value1: '',
@@ -83,8 +69,7 @@ export default {
       fileList: [
         // Uploader 根据文件后缀来判断是否为图片文件
         // 如果图片 URL 中不包含类型信息，可以添加 isImage 标记来声明
-      ],
-      isShowHouse: false
+      ]
     }
   },
   methods: {
@@ -94,9 +79,6 @@ export default {
     afterRead(file) {
       // 此时可以自行将文件上传至服务器
       console.log(file)
-    },
-    updatehouse(val) {
-      
     }
   }
 }

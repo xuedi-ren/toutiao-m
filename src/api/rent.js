@@ -9,3 +9,14 @@ export const myRentList = () => {
     }
   })
 }
+
+// !使用关键词查询小区信息
+export const getcommunityName = (name, id) => {
+  return request({
+    url: '/area/community',
+    params: {
+      name,
+      id
+    }
+  })
+}
